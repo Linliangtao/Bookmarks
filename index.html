@@ -28,16 +28,28 @@
     index = 0
     while(index< keys['length']){//0 1 2
          divA = document.createElement('div')
+         divA.className = 'row'
          mainA.appendChild(divA)
          row = keys[index] //第一个数组 第二个数组 第三个数组
          index2 = 0
  
          while(index2< row['length']){
              kbdA = document.createElement('kbd')
+             span = document.createElement('span')
+             span.textContent = row[index2]
+             span.className = 'text'
+             kbdA.appendChild(span)
              kbdA.textContent = row[index2]
+             kbdA.className = 'key'
              buttonA = document.createElement('button')
              buttonA.textContent ='编辑'
              buttonA.id =row[index2]
+             imgA = document.createElement('img')
+             if(hash[row[index2]]){
+                imgA.src = 'http://'+hash[row[index2]] + '/favicon.ico'
+             }else{
+                 imgA.src = './img/dian.png'
+             }
              buttonA.onclick = function(suibian){
                  // suibian['target'] 就是用户点击的元素
                 key = suibian['target']['id'] //q w e r t
@@ -46,6 +58,7 @@
                 localStorage.setItem('zzz',JSON.stringify(hash))
                 console.log (hash)
              }
+             kbdA.appendChild(imgA)
              kbdA.appendChild(buttonA)
              divA.appendChild(kbdA)
              index2 = index2 +1
