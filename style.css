@@ -23,11 +23,10 @@ kbd{
 }
 kbd > button{
     font-size: 1px;
+    display: none;
     position: absolute;
     right: 0;
     bottom: 0;
-    display: none;
-    
 
 }
 kbd:hover >button{
