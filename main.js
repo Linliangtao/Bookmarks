@@ -8,6 +8,33 @@ var keys ={
      'q':'qq.com','w':'weibo.com','i':'iqiyi.com','h':'huya.com','z':'zhihu.com'
  }
  
+var aInput=document.getElementsByTagName('input');
+    if(localStorage.getItem('websites')){
+        hash=JSON.parse(localStorage.getItem('websites'));
+    }
+    var isOpen=true;
+    aInput[0].onfocus=function(){
+        isOpen=false;
+    }
+    aInput[0].onblur=function(){
+        isOpen=true;
+    }
+    aInput[1].onclick=function(){
+        window.open('https://www.baidu.com/s?wd='+aInput[0].value,'_blank');
+    }
+    aInput[2].onclick=function(){
+        window.open('https://www.google.com/search?q='+aInput[0].value,'_blank');
+    }
+    document.onkeypress=function(ev){
+        var ev=ev || window.event;
+        if(hash[ev.key] && isOpen){
+            window.open('http://'+hash[ev.key],'_blank');
+        }
+        if(!isOpen && ev.keyCode==13){
+            window.open('https://www.baidu.com/s?wd='+aInput[0].value,'_blank');
+        }
+    }
+
  //取出 localStoreage 中的zzz 对应的hash
         hashInLocalStorage =JSON.parse(localStorage.getItem('zzz')|| 'null')
         if(hashInLocalStorage){
