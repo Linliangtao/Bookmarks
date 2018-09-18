@@ -2,9 +2,39 @@ body{
     background:grey url(./img/wall.jpg)no-repeat center center;
     background-size:cover;
     height:100%;
+    margin:0;
+	overflow: hidden;
+}
+.clearfix::after{
+	content: '';
+	display: block;
+	clear:both;
+}
+.top{
+    height:96px;
+	overflow: hidden;
+}
+.top_in{
+	max-width:910px;
+	margin:0 auto;
+}
+.top_in .right{
+	float: right;
+	padding-top: 34px;
+}
+.top_in .right input{
+	background: rgba(255,255,255, 0.4);;
+	border: none;
+	font-size: 15px;
+	border-radius: 4px;
+	color: #EEEEEE;
+	padding: 5px 4px;
+}
+.top_in .right input[type=text]{
+	padding: 6px 17px;
 }
 main{
-    height: 100vh;
+    height:  calc(100vh - 96px);;
     text-align: center;
     display: flex;
     align-items: center;
